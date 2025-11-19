@@ -1,10 +1,10 @@
 #toggleDark {
     position: fixed;
-    top: 18px;
-    left: 18px;
+    top: 20px;
+    left: 20px;
     width: 0px;
     height: 0px;
-    background: #000;
+    background: #ffffff;
     border-radius: 20%;
     display: flex;
     justify-content: center;
@@ -12,18 +12,18 @@
     font-size: 45px;
     cursor: pointer;
     z-index: 99999;
-    color: white;
+    color: rgb(0, 0, 0);
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     transition: 0.2s;
 }
 
 /* modo oscuro activado */
 body.dark #toggleDark {
-    background: white;
-    color: black;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 body.dark {
-    background: #121212 !important;
-    color: #eee !important;
+    background: #ffffff !important;
+    color: #000000 !important;
 }
