@@ -37,13 +37,14 @@ body.dark #page-wrapper {
 body.dark .container,
 body.dark .content,
 body.dark .panel {
-    background-color: #1a1a1a !important;
-    color: #fff !important;
+    background-color: #0d0d0d !important;
 }
+/* BOTÓN en MODO OSCURO → blanco */
 body.dark #toggleDark {
     background: #ffffff !important;
     color: #000000 !important;
     border: 2px solid #fff;
+    filter: drop-shadow(0 0 4px #fff);
 }
 
 #toggleDark {
@@ -53,4 +54,11 @@ body.dark #toggleDark {
 }
 body.dark #toggleDark {
     filter: drop-shadow(0 0 4px #ffffff);
+}
+/* BOTÓN en modo CLARO → negro */
+#toggleDark {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #000;
+    filter: drop-shadow(0 0 4px #000);
 }
