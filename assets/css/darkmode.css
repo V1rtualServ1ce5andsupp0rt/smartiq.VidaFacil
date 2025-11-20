@@ -1,11 +1,11 @@
 #toggleDark {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 0px;
-    height: 0px;
-    background: #ffffff;
-    border-radius: 20%;
+    top: 10px;
+    left: 10px;
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    border-radius: 0%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,52 +13,17 @@
     cursor: pointer;
     z-index: 99999;
     color: rgb(0, 0, 0);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    transition: 0.2s;
+    box-shadow: transparent;
 }
 
 /* modo oscuro activado */
 body.dark #toggleDark {
-    background: rgb(0, 0, 0);
+    background: transparent;
     color: rgb(255, 255, 255);
 }
 
+/* modo oscuro fondo */
 body.dark {
-    background: #ffffff !important;
-    color: #000000 !important;
-}
-/* Estilo global para modo oscuro */
-body.dark, 
-body.dark #page-wrapper {
-    background-color: #0d0d0d !important;
-}
-
-/* Estilos oscuros para el contenedor de Esteganografía */
-body.dark .container,
-body.dark .content,
-body.dark .panel {
-    background-color: #0d0d0d !important;
-}
-/* BOTÓN en MODO OSCURO → blanco */
-body.dark #toggleDark {
-    background: #ffffff !important;
-    color: #000000 !important;
-    border: 2px solid #fff;
-    filter: drop-shadow(0 0 4px #fff);
-}
-
-#toggleDark {
-    background: #000000 !important;
+    background: #0d0d0d !important;
     color: #ffffff !important;
-    border: 2px solid #000;
-}
-body.dark #toggleDark {
-    filter: drop-shadow(0 0 4px #ffffff);
-}
-/* BOTÓN en modo CLARO → negro */
-#toggleDark {
-    background: #000000 !important;
-    color: #ffffff !important;
-    border: 2px solid #000;
-    filter: drop-shadow(0 0 4px #000);
 }
