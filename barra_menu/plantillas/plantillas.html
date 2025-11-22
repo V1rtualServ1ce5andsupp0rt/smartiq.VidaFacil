@@ -2,125 +2,71 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- GLOBAL STYLES -->
+    <div id="globalStyles"></div>
+    <script>
+        fetch("../..//components/global-styles.css")
+        fetch("../../components/header.html")
+fetch("../../components/footer.html")
+fetch("../../components/global-scripts.html")
+            .then(r => r.text())
+            .then(h => document.getElementById("globalStyles").innerHTML = h);
+    </script>
 
     <title>Vida Facil - Plantillas</title>
-
-    <!-- Estilos globales -->
-    <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/noscript.css">
-    <link rel="stylesheet" href="../../assets/css/darkmode.css">
-
-    <style>
-        .contenedor-plantillas {
-            max-width: 900px;
-            margin: 7em auto;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .titulo-plantillas {
-            font-size: 2.2em;
-            letter-spacing: 0.25em;
-            margin-bottom: 1.5em;
-            text-transform: uppercase;
-        }
-
-        .btn-categoria {
-            width: 100%;
-            padding: 18px;
-            margin-bottom: 12px;
-            border: 2px solid #ccc;
-            background: transparent;
-            font-size: 1.1em;
-            letter-spacing: 0.15em;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .btn-categoria:hover {
-            background: rgba(255,255,255,0.15);
-        }
-
-        body.dark .btn-categoria {
-            border-color: rgba(255,255,255,0.4);
-            color: #fff;
-        }
-
-        body.dark .btn-categoria:hover {
-            background: rgba(255,255,255,0.08);
-        }
-    </style>
-
 </head>
 
 <body class="landing is-preload">
 
-    <div id="page-wrapper">
+<!-- HEADER -->
+<div id="header"></div>
+<script>
+fetch("../..//components/header.html")
+fetch("../../components/header.html")
+fetch("../../components/footer.html")
+fetch("../../components/global-scripts.html")
+    .then(r => r.text())
+    .then(h => document.getElementById("header").innerHTML = h);
+</script>
 
-        <!-- Menú Global -->
-        <header id="header" >
-            <h1><a href="../../index.html">Virtual Services & support</a></h1>
-            <nav id="nav">
-                <ul>
-                    <li class="special">
-                        <a href="#menu" class="menuToggle"><span>Inicio</span></a>
-                        <div id="menu">
-                            <ul>
-                                <li><a href="../../index.html">Home</a></li>
-                                <li><a href="../esteganografía/esteganografía.html">Esteganografía</a></li>
-                                <li><a href="plantillas.html">Plantillas</a></li>
-                                
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+<div id="page-wrapper">
 
-        <!-- CONTENIDO -->
-        <section id="main">
-            <div class="contenedor-plantillas">
+    <section id="main">
+        <div class="contenedor-plantillas">
+            <h2 class="titulo-plantillas">Categorías de Plantillas</h2>
 
-                <h2 class="titulo-plantillas">Categorías de Plantillas</h2>
+            <button onclick="location.href='vista_previa_plantilla/vista_previa_monografia.html'">
+                🎓✨ Plantilla Profesional de Monografía Universitaria
+            </button>
 
-               <button onclick="location.href='vista_previa_plantilla/vista_previa_monografia.html'">
-    🎓✨ Plantilla Profesional de Monografía Universitaria
-</button>
-                <button class="btn-categoria">Plantillas para horario</button>
-                <button class="btn-categoria">Plantillas para</button>
+            <button class="btn-categoria">Plantillas para horario</button>
+            <button class="btn-categoria">Plantillas para</button>
+        </div>
+    </section>
 
-            </div>
-        </section>
+</div>
 
-        <!-- Footer global -->
-        <footer id="footer">
-            <ul class="icons">
-                <li><a href="#" class="icon brands fa-twitter"><span>Twitter</span></a></li>
-                <li><a href="#" class="icon brands fa-facebook-f"><span>Facebook</span></a></li>
-                <li><a href="#" class="icon brands fa-instagram"><span>Instagram</span></a></li>
-                <li><a href="#" class="icon brands fa-dribbble"><span>Dribbble</span></a></li>
-                <li><a href="#" class="icon solid fa-envelope"><span>Email</span></a></li>
-                
-            </ul>
-            <ul class="copyright">
-                <li>&copy; Virtual Services & support</li>
-            </ul>
-        </footer>
+<!-- FOOTER -->
+<div id="footer"></div>
+<script>
+  fetch("../../components/global-styles.css")
+fetch("../..//components/footer.html")
+fetch("../../components/header.html")
+fetch("../../components/global-scripts.html")
+    .then(r => r.text())
+    .then(h => document.getElementById("footer").innerHTML = h);
+</script>
 
-    </div>
+<!-- GLOBAL SCRIPTS -->
+<div id="globalScripts"></div>
+<script>
+fetch("../..//components/global-scripts.html")
 
-    <!-- Scripts globales -->
-    <script src="../../assets/js/jquery.min.js"></script>
-    <script src="../../assets/js/jquery.scrollex.min.js"></script>
-    <script src="../../assets/js/jquery.scrolly.min.js"></script>
-    <script src="../../assets/js/browser.min.js"></script>
-    <script src="../../assets/js/breakpoints.min.js"></script>
-    <script src="../../assets/js/util.js"></script>
-    <script src="../../assets/js/main.js"></script>
-    <script src="../../assets/js/darkmode.js"></script>
-    <script src="subcategorias.js"></script>
-
+    .then(r => r.text())
+    .then(h => document.getElementById("globalScripts").innerHTML = h);
+</script>
 
 </body>
 </html>

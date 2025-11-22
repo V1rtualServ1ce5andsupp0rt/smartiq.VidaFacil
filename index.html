@@ -1,93 +1,109 @@
 <!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Virtual Services & support - Vida Facil</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="assets/css/main.css">
-<link rel="stylesheet" href="assets/css/noscript.css">
-<link rel="stylesheet" href="assets/css/darkmode.css">   <!-- ESTA LÍNEA FALTABA -->
-<link rel="icon" href="images/favicon.ico"> <!-- / carga el icono -->
+<html lang="es">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	</head>
-	<body class="landing is-preload">
-		
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="index.html">Virtual Services & support</a></h1>
-						<nav id="nav">
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Inicio</span></a>
-									<div id="menu">
-										<ul>
-											<li><a href="index.html">INICIO</a></li>
-											<li><a href="barra_menu/esteganografia/esteganografia.html">ESTEGANOGRAFÍA</a></li>
-											<li><a href="barra_menu/plantillas/plantillas.html">PLANTILLAS</a></li>
-									
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</nav>
-					</header>
-				<!-- Banner -->
-				<section id="banner">
-    <div class="inner">
-        <h2>Virtual Services & support</h2>
-        <p>facilita tu vida
-        </p>
-       
+    <!-- ESTILOS (RUTA CORREGIDA) -->
+    <script>
+        fetch("components/global-styles.css")
+            .then(r => r.text())
+            .then(css => {
+                const temp = document.createElement("div");
+                temp.innerHTML = css;
+                temp.querySelectorAll("link").forEach(link => {
+                    document.head.appendChild(link);
+                });
+            });
+    </script>
+    
+    <style>
+            body.landing #page-wrapper:before {
+            display: none !important;
+
+}
+</style>
+
+</head>
+
+<body class="landing is-preload">
+
+    <div id="page-wrapper">
+
+        <!-- HEADER -->
+        <div id="header"></div>
+       <script>
+fetch("components/header.html")
+    .then(r => r.text())
+    .then(h => {
+        document.getElementById("header").innerHTML = h;
+
+        setTimeout(() => {
+            const menu = document.querySelector("#menu");
+            const toggle = document.querySelector(".menuToggle");
+            const closeBtn = document.querySelector("#closeMenu");
+
+            if (toggle) {
+                toggle.onclick = (e) => {
+                    e.preventDefault();
+                    menu.classList.add("visible");
+                };
+            }
+
+            if (closeBtn) {
+                closeBtn.onclick = (e) => {
+                    e.preventDefault();
+                    menu.classList.remove("visible");
+                };
+            }
+        }, 200);
+    });
+</script>
+
+
+        <section id="banner">
+            <div class="inner">
+                <h2>VIRTUAL SERVICES & SUPPORT</h2>
+                <p>FACILITA TU VIDA</p>
+            </div>
+            <a href="#one" class="more scrolly">Redes</a>
+        </section>
+
+        <section id="one" class="wrapper style1 special">
+            <div class="inner"></div>
+        </section>
+
     </div>
 
-    <a href="#one" class="more scrolly">Redes</a>
-	<section id="one" class="wrapper style1 special">
-    <div class="inner">
-        <!-- tus redes aquí -->
-    </div>
-</section>
+    <script src="assets/js/darkmode.js"></script>
 
-</section>
+    <a href="https://wa.me/51922064437?text=Hola%20vengo%20desde%20tu%20pagina%20web.%20Quisiera%20información."
+       class="whatsapp-inicio" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="whatsapp">
+    </a>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-						<ul class="copyright">
-							<li>&copy; Virtual Services & support</li>
+    <div id="footer"></div>
+    <script>
+        fetch("/components/footer.html")
+            .then(r => r.text())
+            .then(h => document.getElementById("footer").innerHTML = h);
+    </script>
 
-						</ul>
-					</footer>
-			</div>
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			
-<!-- MODO OSCURO GLOBAL -->
+    <script>
+        fetch("/components/global-scripts.html")
+            .then(r => r.text())
+            .then(js => {
+                const temp = document.createElement("div");
+                temp.innerHTML = js;
 
-<!-- MODO OSCURO -->
-<script src="assets/js/darkmode.js"></script>
-<script src="../../assets/js/main.js"></script>
-<!-- WHATSAPP FLOTANTE SOLO PARA INICIO -->
-<a href="https://wa.me/51922064437?text=Hola%20vengo%20desde%20tu%20pagina%20web.%20Quisiera%20información." 
-   class="whatsapp-inicio" target="_blank">
+                temp.querySelectorAll("script").forEach(s => {
+                    const real = document.createElement("script");
+                    real.src = s.src;
+                    document.body.appendChild(real);
+                });
+            });
+    </script>
 
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="whatsapp">
-</a>
-
-	</body>
-	
+</body>
 </html>

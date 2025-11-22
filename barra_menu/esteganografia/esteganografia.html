@@ -1,131 +1,93 @@
 <!DOCTYPE HTML>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- GLOBAL STYLES -->
+   <div id="globalStyles"></div>
+<script>
+fetch("/components/global-styles.css")
+    .then(r => r.text())
+    .then(h => document.getElementById("globalStyles").innerHTML = h);
+</script>
 
     <title>Vida Facil - Esteganografía</title>
 
-    <!-- ESTILOS GLOBALES -->
-    <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/noscript.css">
-    <link rel="stylesheet" href="../../assets/css/darkmode.css">
-
     <style>
-        /* Ajustes solo para esta herramienta */
         .tool-box {
-            width: 90%;
             max-width: 900px;
-            margin: 40px auto 10px auto;;
-            background: rgba(255,255,255,0.2);
-            padding: 25px 30px;
+            margin: 1em auto;
+            padding: 30px;
             border-radius: 10px;
-        }
-
-        body.dark .tool-box {
-            background: rgba(0,0,0,0.5) !important;
+            background: #444;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
         }
 
         textarea {
             width: 100%;
-            height: 140px;
-            padding: 15px;
-            border-radius: 8px;
-            border: none;
-            background: #ffffff;
+            height: 120px;
+            margin: 10px 0;
         }
-
-        body.dark textarea {
-            background: #1e1e1e;
-            color: white;
-        }
-
-        button {
-            width: 100%;
-            margin-top: 15px;
-            padding: 12px;
-            font-size: 16px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            background: #ffb0db;
-            color: black;
-        }
-
-        body.dark button {
-            background: #5a5259;
-            color: black;
-            
-        }
-        
     </style>
 </head>
 
-<body class="tools-page is-preload">
+<body class="landing">
 
-    <!-- CONTENEDOR GLOBAL -->
+    <!-- HEADER -->
+    <div id="header"></div>
+    <script>
+    fetch("/components/header.html")
+    .then(r => r.text())
+    .then(h => {
+        document.getElementById("header").innerHTML = h;
+    });
+    </script>
+
     <div id="page-wrapper">
-    <div class="header-bar">
-    <div class="container"> 
-
-
-        <!-- MENÚ GLOBAL -->
-        <header id="header" class="alt">
-            <h1><a href="../../index.html">Virtual Services & support</a></h1>
-            <nav id="nav">
-                <ul>
-                    <li class="special">
-                        <a href="#menu" class="menuToggle"><span>Inicio</span></a>
-                        <div id="menu">
-                            <ul>
-                                <li><a href="../../index.html">Home</a></li>
-                                <li><a href="../barra_menu/esteganografia/esteganografia.html">Esteganografía</a></li>
-                                <li><a href="../barra_menu/plantillas/plantillas.html">Plantillas</a></li>
-                                <li><a href="#">Sign Up</a></li>
-                                <li><a href="#">Log In</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- CONTENIDO -->
         <section id="main">
             <div class="tool-box">
                 <h1 style="text-align:center;">Esteganografía</h1>
 
                 <textarea id="texto" placeholder="Escribe el texto que quieres ocultar..."></textarea>
-
                 <button onclick="generar()">Generar Esteganografía</button>
 
                 <h3>Resultado:</h3>
                 <textarea id="resultado" readonly></textarea>
             </div>
         </section>
-
     </div>
 
-    <!-- SCRIPTS GLOBALES -->
-    <script src="../../assets/js/jquery.min.js"></script>
-    <script src="../../assets/js/jquery.scrollex.min.js"></script>
-    <script src="../../assets/js/jquery.scrolly.min.js"></script>
-    <script src="../../assets/js/browser.min.js"></script>
-    <script src="../../assets/js/breakpoints.min.js"></script>
-    <script src="../../assets/js/util.js"></script>
-    <script src="../../assets/js/main.js"></script>
+    <!-- FOOTER -->
+    <div id="footer"></div>
+    <script>
+        fetch("/components/footer.html")
+            .then(r => r.text())
+            .then(h => document.getElementById("footer").innerHTML = h);
+    </script>
 
-    <!-- MODO OSCURO GLOBAL -->
-    <script src="../../assets/js/darkmode.js"></script>
+    <!-- GLOBAL SCRIPTS -->
+        <script>
+        fetch("/components/global-scripts.html")
+        .then(r => r.text())
+        .then(js => {
+            const temp = document.createElement("div");
+            temp.innerHTML = js;
+            temp.querySelectorAll("script").forEach(s => {
+                const real = document.createElement("script");
+                if (s.src) real.src = s.src;
+                else real.innerHTML = s.innerHTML;
+                document.body.appendChild(real);
+            });
+        });
+        </script>
 
-    <!-- SCRIPT DE ESTEGANOGRAFÍA -->
+
     <script>
         function generar() {
             let t = document.getElementById("texto").value;
-            if (!t.trim()) {
-                document.getElementById("resultado").value = "";
-                return;
-            }
+            if (!t.trim()) return document.getElementById("resultado").value = "";
             let oculto = "";
             for (let c of t) {
                 oculto += c.charCodeAt(0)
@@ -137,6 +99,7 @@
             document.getElementById("resultado").value = oculto;
         }
     </script>
-</body>
-</html>
 
+</body>
+
+</html>

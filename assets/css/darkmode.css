@@ -7,7 +7,7 @@ body {
 /* Contenedor centrado */
 .wrapper-est {
     max-width: 900px;
-    margin: 40px auto;
+    margin: 10px auto 30px auto;
 }
 /* HEADER EN MODO CLARO */
 body.light #header {
@@ -16,7 +16,7 @@ body.light #header {
 
 /* HEADER EN MODO OSCURO */
 body.dark #header {
-    background: #1b1b1b;
+    background: #ff1e1e;
 }
 /* Modo claro: texto oscuro para el menú */
 body.light #header h1 a,
@@ -141,7 +141,7 @@ body:not(.dark) #header {
 }
 
 body:not(.dark) #header a {
-    color: white;
+    color: rgb(0, 0, 0);
 }
 body:not(.dark) #header {
     background: #000 !important;
@@ -149,4 +149,91 @@ body:not(.dark) #header {
 
 body:not(.dark) #header a {
     color: #fff !important;
+}
+/* =========================
+   MODO OSCURO (por defecto)
+   ========================= */
+body.darkmode-dark {
+    background-color: #111111;  /* fondo general oscuro */
+    color: #ffffff;
+}
+
+/* barra superior en oscuro */
+body.darkmode-dark #header {
+    background-color: #2e3842;  /* tu azul oscuro original */
+}
+
+/* enlaces del menú en oscuro */
+body.darkmode-dark #header nav > ul > li > a,
+body.darkmode-dark #header nav .menuToggle {
+    color: #ffffff;
+}
+
+/* =========================
+   MODO CLARO
+   ========================= */
+body.darkmode-light {
+    background-color: #f7efd3;  /* crema de los bordes */
+    color: #111111;
+}
+
+/* barra superior en CLARO: que se vea el menú */
+body.darkmode-light #header {
+    background-color: #000000;  /* negro */
+}
+
+/* enlaces del menú en CLARO */
+body.darkmode-light #header nav > ul > li > a,
+body.darkmode-light #header nav .menuToggle {
+    color: #ffffff;             /* blanco sobre barra negra */
+}
+/* Colores del menú según modo */
+
+/* Modo claro */
+body.light #menu {
+    background: #1500ff;
+    color: #000;
+}
+
+body.light #menu a {
+    color: #000;
+}
+
+/* Modo oscuro */
+body.dark #menu {
+    background: #000000;   /* un casi negro */
+    color: #f9fafb;
+}
+
+body.dark #menu a {
+    color: #f9fafb;
+}
+
+body.dark #menu ul > li {
+    border-color: rgba(255,255,255,0.15);
+}
+/* BARRA DE MENÚ EN MODO CLARO (cuando NO está la clase .dark) */
+body:not(.dark) #header {
+    background: #000000 !important;   /* barra negra */
+}
+
+/* Texto e icono del menú en modo claro */
+body:not(.dark) #header a,
+body:not(.dark) #header .menuToggle span {
+    color: #ffffff !important;        /* texto blanco */
+}
+
+/* Por si el icono es imagen/SVG */
+body:not(.dark) #header .menuToggle img,
+body:not(.dark) #header .menuToggle svg {
+    filter: invert(1);
+}
+/* Quitar barra negra solo en INICIO (landing) */
+body.landing #header,
+body.landing.dark #header{ background: transparent !important; }
+body.landing:not(.dark) #header {
+    background: transparent !important;
+}
+#dark-mode-toggle {
+    top: 10px !important;
 }
